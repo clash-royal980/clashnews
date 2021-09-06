@@ -37,14 +37,31 @@ app.use(cors({
   origin: ['http://localhost:8080', 'http://127.0.0.1:8080']
 }));
 
+// 首页所有数据(分页)
 app.get('/newsall', (req, res) => {
-  let sql = 'SELECT * FROM hot_info where hi_type="热门"';
-  // 执行SQL语句
-  pool.query(sql, (error, results) => {
+  let cid = req.query.cid;
+  let page = req.query.page? req.query.page : 1;
+  console.log(cid,page);
+  let pagesize = 10;//每页数据
+  let offset = (page - 1) * pagesize;
+  let rowcount;//总数
+  let sql = 'SELECT COUNT(hi_id) AS count FROM hot_info WHERE hi_type=?';
+  pool.query(sql, [cid], (error, results) => {
     if (error) throw error;
-    res.send({ message: 'ok', code: 200, results: results });
+    rowcount = results[0].count;
+    let pagecount = Math.ceil(rowcount / pagesize);
+    // 查询SQL语句
+    sql2 = 'SELECT * FROM hot_info WHERE hi_type=? LIMIT ?,?';
+    // 执行SQL
+    pool.query(sql2, [cid, offset, pagesize], (error, results) => {
+      if (error) throw error;
+      res.send({ message: 'ok', code: 200, results: results, pagecount: pagecount });
+    });
   });
+
 });
+  
+// 详情页
 app.get('/detail', (req, res) => {
   let id = req.query.id;
   console.log(id);
