@@ -34,11 +34,12 @@ const cors = require('cors');
 
 // 使用CORS中间件
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://127.0.0.1:8080']
+  origin: ['http://localhost:8080', 'http://127.0.0.1:8080','https://m.crlcn.com/#/']
 }));
 
 // 首页所有数据(分页)
 app.get('/newsall', (req, res) => {
+  res.setHeader('Set-Cookie','SameSite=None')
   let cid = req.query.cid;
   let page = req.query.page? req.query.page : 1;
   console.log(cid,page);
@@ -65,7 +66,7 @@ app.get('/newsall', (req, res) => {
 app.get('/detail', (req, res) => {
   let id = req.query.id;
   console.log(id);
-  let sql = 'SELECT * FROM hot_info where hi_type="热门" and hi_id=?';
+  let sql = 'SELECT * FROM hot_info where hi_id=?';
   // 执行SQL语句
   pool.query(sql, [id],(error, results) => {
     if (error) throw error;
