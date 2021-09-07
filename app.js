@@ -40,7 +40,8 @@ app.use(cors({
 // 首页所有数据(分页)
 app.get('/newsall', (req, res) => {
   res.setHeader('Set-Cookie','SameSite=None')
-  let cid = req.query.cid;
+  console.log(req.query.cid);
+  let cid = req.query.cid==0?'热门':req.query.cid==1?'战报':req.query.cid==2?'深度':req.query.cid==3?'采访':'花絮';
   let page = req.query.page? req.query.page : 1;
   console.log(cid,page);
   let pagesize = 10;//每页数据
