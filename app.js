@@ -75,7 +75,20 @@ app.get('/detail', (req, res) => {
   });
 });
 
+//轮播图
+app.get('/carouse', (req, res) => {
+  let id = req.query.id;
+  console.log(id);
+  let sql = 'SELECT * FROM carouse';
+  // 执行SQL语句
+  pool.query(sql,(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
   console.log('server is running...');
 });
+
