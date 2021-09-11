@@ -210,3 +210,81 @@ INSERT INTO carouse VALUES(2,'诛神之夜！日本“魔鬼”新人一穿五�
 INSERT INTO carouse VALUES(3,'C博士呕血新作 史上最全卡组教学来了！','/img/carouserl/3.png');
 INSERT INTO carouse VALUES(4,'天王再临！十大天王争霸赛第二赛季震撼回归 ','/img/carouserl/4.png');
 INSERT INTO carouse VALUES(5,'赛制详解！你离1000万只差这份攻略！','/img/carouserl/5.png');
+
+#palyer
+create table palyer(
+  id int primary key auto_increment,
+  play_time varchar(16),  #比赛时间
+  play1_pic varchar(128), #player1图片
+  play2_pic varchar(128), #player2图片
+  fen1 int, #第一个比分
+  fen2 int,  #第二个比分
+  play1_name varchar(32), #player1名字
+  play2_name varchar(32),  #player2名字
+  game_type varchar(4)  #比赛周
+);
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/1.png','/img/tenking/people/2.png',1,2,'Smuki','guoyuan','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/3.png','/img/tenking/people/4.png',1,2,'Arimura','Narie','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/5.png','/img/tenking/people/6.png',2,0,'Panda','Face','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/7.png','/img/tenking/people/8.png',2,0,'Pandora','Cherax','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/9.png','/img/tenking/people/10.png',2,1,'KK','Wsahio','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/11.png','/img/tenking/people/12.png',0,2,'Seori','Runadora','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/13.png','/img/tenking/people/14.png',2,1,'XYD','Sado','W3');
+INSERT INTO palyer VALUES(null,'09-04','/img/tenking/people/15.png','/img/tenking/people/16.png',2,0,'Auk','GL jasmine','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/7.png','/img/tenking/people/4.png',2,0,'Pandora','Narie','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/5.png','/img/tenking/people/2.png',2,1,'Panda','guoyuan','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/12.png','/img/tenking/people/7.png',0,2,'Runadora','Pandora','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/9.png','/img/tenking/people/5.png',0,2,'KK','Panda','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/15.png','/img/tenking/people/7.png',0,2,'Auk','Pandora','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/14.png','/img/tenking/people/5.png',1,2,'XYD','Panda','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/17.png','/img/tenking/people/7.png',2,1,'Lim-Endo','Pandora','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/18.png','/img/tenking/people/5.png',1,2,'Higher','Panda','W3');
+INSERT INTO palyer VALUES(null,'09-05','/img/tenking/people/17.png','/img/tenking/people/5.png',3,2,'Lim-Endo','Panda','W3');
+
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/1.png','/img/tenking/people/19.png',0,2,'Smuki','one-two','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/20.png','/img/tenking/people/17.png',1,2,'Tattos','Lim-Endo','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/21.png','/img/tenking/people/5.png',1,2,'FamousKid','Panda','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/3.png','/img/tenking/people/22.png',2,0,'Arimura','iPhone','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/9.png','/img/tenking/people/23.png',2,1,'KK','Gakinishi','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/7.png','/img/tenking/people/24.png',2,0,'Pandora','Xiake','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/25.png','/img/tenking/people/14.png',0,2,'SandBox','XYD','W2');
+INSERT INTO palyer VALUES(null,'08-28','/img/tenking/people/26.png','/img/tenking/people/11.png',1,2,'Lciop','Seori','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/5.png','/img/tenking/people/1.png',2,0,'Panda','Smuki','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/7.png','/img/tenking/people/17.png',1,2,'Pandora','Lim-Endo','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/9.png','/img/tenking/people/5.png',1,2,'KK','Panda','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/11.png','/img/tenking/people/17.png',1,2,'Seori','Lim-Endo','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/14.png','/img/tenking/people/9.png',2,1,'XYD','KK','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/15.png','/img/tenking/people/17.png',1,2,'Auk','Lim-Endo','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/18.png','/img/tenking/people/14.png',2,1,'Higher','XYD','W2');
+INSERT INTO palyer VALUES(null,'08-29','/img/tenking/people/17.png','/img/tenking/people/18.png',3,2,'Lim-Endo','Higher','W2');
+
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/3.png','/img/tenking/people/20.png',2,1,'Arimura','Tattoos','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/21.png','/img/tenking/people/1.png',2,0,'FamousKid','Smuki','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/7.png','/img/tenking/people/3.png',2,0,'Pandora','Arimura','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/9.png','/img/tenking/people/21.png',2,1,'KK','FamousKid','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/26.png','/img/tenking/people/7.png',2,1,'Licop','Pandora','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/15.png','/img/tenking/people/9.png',2,0,'Auk','KK','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/18.png','/img/tenking/people/26.png',2,0,'Height','Licop','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/25.png','/img/tenking/people/15.png',0,2,'SandBox','Auk','W1');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/18.png','/img/tenking/people/15.png',2,3,'Higher','Auk','W1');
+
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/7.png','/img/tenking/people/20.png',1,0,'Pandora','Tattoos','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/18.png','/img/tenking/people/26.png',1,0,'Higher','Lciop','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/18.png','/img/tenking/people/20.png',1,0,'Higher','Tattoos','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/3.png','/img/tenking/people/26.png',0,1,'Arimura','Lciop','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/7.png','/img/tenking/people/18.png',0,1,'Pandora','Higher','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/20.png','/img/tenking/people/26.png',0,1,'Tattoos','Lciop','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/3.png','/img/tenking/people/18.png',0,1,'Arimura','Higher','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/7.png','/img/tenking/people/3.png',1,0,'Pandora','Arimura','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/3.png','/img/tenking/people/20.png',1,0,'Arimura','Tattoos','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/7.png','/img/tenking/people/26.png',0,1,'Pandora','Lciop','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/9.png','/img/tenking/people/25.png',0,1,'KK','SandBox','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/15.png','/img/tenking/people/21.png',1,0,'Auk','FamousKid','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/15.png','/img/tenking/people/25.png',0,1,'Auk','SandBox','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/1.png','/img/tenking/people/21.png',0,1,'Smuki','FamousKid','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/15.png','/img/tenking/people/9.png',1,0,'Auk','KK','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/25.png','/img/tenking/people/21.png',0,1,'SandBox','FamousKid','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/1.png','/img/tenking/people/15.png',0,1,'Smuki','Auk','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/9.png','/img/tenking/people/1.png',1,0,'KK','Smuki','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/1.png','/img/tenking/people/25.png',0,1,'Smuki','SandBox','W0');
+INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/9.png','/img/tenking/people/21.png',1,0,'KK','FousKid','W0');

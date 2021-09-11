@@ -87,6 +87,17 @@ app.get('/carouse', (req, res) => {
   });
 });
 
+// 十大天王pk数据
+app.get('/tenkingpk', (req, res) => {
+  let type = req.query.type
+  let sql = 'SELECT * FROM palyer where game_type = ?';
+  // 执行SQL语句
+  pool.query(sql,[type],(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
   console.log('server is running...');
