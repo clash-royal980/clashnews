@@ -288,3 +288,25 @@ INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/1.png','/img/tenking
 INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/9.png','/img/tenking/people/1.png',1,0,'KK','Smuki','W0');
 INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/1.png','/img/tenking/people/25.png',0,1,'Smuki','SandBox','W0');
 INSERT INTO palyer VALUES(null,'08-15','/img/tenking/people/9.png','/img/tenking/people/21.png',1,0,'KK','FousKid','W0');
+
+#十大天王选手数据
+create table player_data(
+  id int primary key auto_increment,
+  player_rank int,  #排名
+  player_name varchar(128), #姓名
+  win int, #胜
+  lose int, #负
+  player_chance varchar(8), #胜率
+  player_crown varchar(8),  #皇冠数
+  player_integral int  #积分
+);
+INSERT INTO player_data VALUES(null,1,'Lim-Endo',16,9,'64%','0.8',200);
+INSERT INTO player_data VALUES(null,2,'Higher',13,9,'59%','0.8',190);
+INSERT INTO player_data VALUES(null,3,'Auk',13,7,'65%','0.8',185);
+INSERT INTO player_data VALUES(null,4,'Pandora',17,8,'68%','0.8',105);
+INSERT INTO player_data VALUES(null,5,'Panda',17,9,'65%','0.7',90);
+INSERT INTO player_data VALUES(null,6,'KK',10,12,'43%','0.7',90);
+INSERT INTO player_data VALUES(null,7,'XYD',8,6,'57%','0.6',85);
+INSERT INTO player_data VALUES(null,8,'Lciop',6,6,'50%','0.8',50);
+INSERT INTO player_data VALUES(null,9,'SandBox',3,5,'38%','0.5',50);
+INSERT INTO player_data VALUES(null,10,'Seori',3,5,'38%','0.4',35);

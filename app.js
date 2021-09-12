@@ -98,6 +98,16 @@ app.get('/tenkingpk', (req, res) => {
   });
 });
 
+// 十大天王选手数据
+app.get('/tenkingdata', (req, res) => {
+  let sql = 'SELECT * FROM player_data';
+  // 执行SQL语句
+  pool.query(sql,(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
   console.log('server is running...');
