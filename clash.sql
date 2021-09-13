@@ -310,3 +310,24 @@ INSERT INTO player_data VALUES(null,7,'XYD',8,6,'57%','0.6',85);
 INSERT INTO player_data VALUES(null,8,'Lciop',6,6,'50%','0.8',50);
 INSERT INTO player_data VALUES(null,9,'SandBox',3,5,'38%','0.5',50);
 INSERT INTO player_data VALUES(null,10,'Seori',3,5,'38%','0.4',35);
+
+#十大天王卡组数据
+create table card_data(
+  id int primary key auto_increment,
+  card_content mediumtext NOT NULL, #卡组内容
+  card_sl varchar(8),  #卡组胜率
+  card_dcs int, #登场数
+  card_hgs varchar(4) #皇冠数
+);
+INSERT INTO card_data VALUES(null,'<div class="card"><img src="/img/tenking/card/68.png" alt=""><img src="/img/tenking/card/11.png" alt=""><img src="/img/tenking/card/5.png" alt=""><img src="/img/tenking/card/2.png" alt=""><img src="/img/tenking/card/81.png" alt=""><img src="/img/tenking/card/15.png" alt=""><img src="/img/tenking/card/7.png" alt=""><img src="/img/tenking/card/1.png" alt=""></div><div class="info"><p>胜率：100%</p><p>登场数:4</p>
+                      <p>场均皇冠数:1.0</p>
+                    </div>','100%',4,'1.0')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
+INSERT INTO card_data VALUES(null,'','',,'')
