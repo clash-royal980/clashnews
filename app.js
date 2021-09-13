@@ -107,6 +107,18 @@ app.get('/tenkingdata', (req, res) => {
     res.send({ message: 'ok', code: 200, results: results });
   });
 });
+// 十大天王卡组数据
+app.get('/tenkingcard', (req, res) => {
+  let type = req.query.type
+  console.log(type);
+  let sql = 'SELECT * FROM card_data order by '+type+' desc limit 0,10';
+  // 执行SQL语句
+  pool.query(sql,(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
 
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
