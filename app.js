@@ -107,6 +107,7 @@ app.get('/tenkingdata', (req, res) => {
     res.send({ message: 'ok', code: 200, results: results });
   });
 });
+
 // 十大天王卡组数据
 app.get('/tenkingcard', (req, res) => {
   let type = req.query.type
@@ -119,6 +120,17 @@ app.get('/tenkingcard', (req, res) => {
   });
 });
 
+// 十大天王详细战报
+app.get('/tenkingdetail', (req, res) => {
+  let id = req.query.id
+  // console.log(type);
+  let sql = 'SELECT * FROM palyer where id=?';
+  // 执行SQL语句
+  pool.query(sql,[id],(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
 
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
