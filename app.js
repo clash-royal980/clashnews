@@ -10,6 +10,10 @@ const bodyParser = require('body-parser');
 // 加载MD5模块
 const md5 = require('md5');
 
+const svgCap = require('svg-captCha');
+
+var session = require('express-session');
+
 // 创建MySQL连接池
 const pool = mysql.createPool({
   host: '127.0.0.1',   //MySQL服务器地址
@@ -28,6 +32,9 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.use(session({
+  secret:'mykey'
+}))
 
 // 加载CORS模块
 const cors = require('cors');
@@ -36,6 +43,15 @@ const cors = require('cors');
 app.use(cors({
   origin: ['http://localhost:8080', 'http://127.0.0.1:8080','https://m.crlcn.com/#/']
 }));
+
+// 返回svg图片
+app.get('/getcode',(req,res)=>{
+  // 生成验证码
+  let cap = svgCap.create();
+  console.log('生成的验证码是:'+cap.text);
+  res.type('svg');
+  res.send(cap.data);
+})
 
 // 首页所有数据(分页)
 app.get('/newsall', (req, res) => {
