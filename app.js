@@ -28,29 +28,77 @@ const pool = mysql.createPool({
 // 创建服务器对象
 const app = express();
 
+app.use(session({
+  secret:'mykey',
+  resave:false,
+  saveUninitialized:true,
+}))
+
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
-app.use(session({
-  secret:'mykey'
-}))
 
 // 加载CORS模块
 const cors = require('cors');
 
 // 使用CORS中间件
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://127.0.0.1:8080','https://m.crlcn.com/#/']
+  origin: ['http://localhost:8080', 'http://127.0.0.1:8080']
 }));
 
+let answer = '';
 // 返回svg图片
 app.get('/getcode',(req,res)=>{
   // 生成验证码
-  let cap = svgCap.create();
+  let cap = svgCap.create({
+    noise:5
+  });
   console.log('生成的验证码是:'+cap.text);
+  answer=cap.text;
   res.type('svg');
+  // console.log(req.session);
   res.send(cap.data);
+})
+
+// 用户注册
+app.post('/userreg',(req,res)=>{
+  let username = req.body.pho
+  let userpwd = req.body.pwd
+  let yzm = req.body.yzm
+  console.log(answer);
+  if(yzm.toUpperCase()!=answer.toUpperCase()){
+    res.send({message:'error'})
+  }else{
+    let picid = Math.floor(Math.random()*24)+1;
+    pool.query('select * from user_info where phone = ?',[username],(error,result)=>{
+      console.log(result);
+      if(result.length!=0){
+        res.send({ message: 'phone exits',code:100});
+      }else{
+        let sql = 'insert into user_info (id,phone,pwd,toppic) VALUES(null,?,md5(?),"/img/toppic/?.png")'
+        pool.query(sql, [username,userpwd,picid],(error, results) => {
+        if (error) throw error;
+        res.send({ message: 'ok', code: 200});
+      });
+    }
+  })
+  }
+})
+
+// 用户登录
+app.post('/userlogin',(req,res)=>{
+  console.log(req.body);
+  let username = req.body.pho;
+  let userpwd = req.body.pwd;
+  let sql = 'select * from user_info where phone = ? and pwd = md5(?)'
+  pool.query(sql, [username,userpwd],(error, result) => {
+    if (error) throw error;
+    if(result.length==0){
+      res.send({ message: 'error', code: 100});
+    }else{
+      res.send({ message: 'ok', code: 200,result: result});
+    }
+  });
 })
 
 // 首页所有数据(分页)

@@ -346,3 +346,15 @@ INSERT INTO card_data VALUES(null,'<div class="card"><img src="/img/tenking/card
 INSERT INTO card_data VALUES(null,'<div class="card"><img src="/img/tenking/card/47.png" alt=""><img src="/img/tenking/card/38.png" alt=""><img src="/img/tenking/card/50.png" alt=""><img src="/img/tenking/card/49.png" alt=""><img src="/img/tenking/card/48.png" alt=""><img src="/img/tenking/card/15.png" alt=""><img src="/img/tenking/card/12.png" alt=""><img src="/img/tenking/card/42.png" alt=""></div>',0.33,3,1.0);
 INSERT INTO card_data VALUES(null,'<div class="card"><img src="/img/tenking/card/47.png" alt=""><img src="/img/tenking/card/5.png" alt=""><img src="/img/tenking/card/38.png" alt=""><img src="/img/tenking/card/50.png" alt=""><img src="/img/tenking/card/49.png" alt=""><img src="/img/tenking/card/48.png" alt=""><img src="/img/tenking/card/15.png" alt=""><img src="/img/tenking/card/12.png" alt=""></div>',0.33,3,1.0);
 INSERT INTO card_data VALUES(null,'<div class="card"><img src="/img/tenking/card/5.png" alt=""><img src="/img/tenking/card/2.png" alt=""><img src="/img/tenking/card/81.png" alt=""><img src="/img/tenking/card/15.png" alt=""><img src="/img/tenking/card/7.png" alt=""><img src="/img/tenking/card/88.png" alt=""><img src="/img/tenking/card/80.png" alt=""><img src="/img/tenking/card/1.png" alt=""></div>',0.5,8,0.8);
+
+#用户信息表
+create table user_info(
+  id int primary key auto_increment,
+  phone varchar(16) NOT NULL, #电话
+  pwd varchar(128),  #密码
+  toppic varchar(128),  #头像
+  username varchar(64) default 'FQlNl_yv',
+  winlose int default 0,
+  goldmoney int default 1000
+);
+INSERT INTO user_info (id,phone,pwd,toppic) VALUES(null,'15102797261',md5('123456'),'/img/toppic/9.png');
