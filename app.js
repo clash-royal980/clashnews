@@ -196,6 +196,18 @@ app.get('/tenkingdetail', (req, res) => {
   });
 });
 
+// 用户信息查询
+app.get('/selectuser', (req, res) => {
+  let phone = req.query.phone
+  // console.log(type);
+  let sql = 'SELECT * FROM user_info where phone=?';
+  // 执行SQL语句
+  pool.query(sql,[phone],(error, result) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, result: result });
+  });
+});
+
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
   console.log('server is running...');
