@@ -355,6 +355,9 @@
     toppic varchar(128),  #头像
     username varchar(64) default 'FQlNl_yv',
     winlose int default 0,
-    goldmoney int default 1000
+    goldmoney int default 1000,
+    email varchar(64),    #邮箱
+    gameID varchar(32),   #游戏ID
+    gamename varchar(32)   #游戏昵称
   );
   INSERT INTO user_info (id,phone,pwd,toppic) VALUES(null,'15102797261',md5('123456'),'/img/toppic/9.png');
