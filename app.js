@@ -208,6 +208,114 @@ app.get('/selectuser', (req, res) => {
   });
 });
 
+// 用户信息修改
+app.post('/userup',(req,res)=>{
+  console.log(req.body);
+  let toppic = req.body.pic;
+  let username = req.body.nc;
+  let email = req.body.email
+  let gameID = req.body.gameID;
+  let gamename = req.body.gamename;
+  let phone = req.body.phone
+  let sql = 'update user_info set toppic=?,username=?,email=?,gameID=?,gamename=? where phone=?';
+    pool.query(`select * from user_info where toppic=? and username=? and email=? and gameID=? and gamename=? and phone=?`, [toppic,username,email,gameID,gamename,phone],(error, result) => {
+      if (error) throw error;
+      if(result.length==1){
+        res.send({code:0,msg:'用户未修改'});
+      }else{
+        pool.query(sql, [toppic,username,email,gameID,gamename,phone],(error, result) => {
+          if (error) throw error;
+          res.send({code:1,msg:'修改成功'});
+        })
+      }
+    });
+})
+
+// 全部商品信息
+app.get('/allshop', (req, res) => {
+  let sql = 'SELECT * FROM shop_info';
+  // 执行SQL语句
+  pool.query(sql,(error, result) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, result: result });
+  });
+});
+
+// 商品信息详细信息
+app.get('/selectshop', (req, res) => {
+  console.log(req.query);
+  let id = req.query.id;
+  let sql = 'SELECT * FROM shop_info where id = ?';
+  // 执行SQL语句
+  pool.query(sql,[id],(error, result) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, result: result });
+  });
+});
+
+// 插入订单信息(修改用户,商品信息)
+app.post('/userorder',(req,res)=>{
+  console.log(req.body);
+  var obj = req.body;
+  let sql = 'insert into user_order set ?'
+  pool.query(sql, [obj],(error, result) => {
+    if (error) throw error;
+    pool.query('update user_info set goldmoney=goldmoney-?', [obj.or_price]);
+    pool.query('update shop_info set sp_other=sp_other-1 where sp_name=?', [obj.or_shop]);
+    res.send({ message: 'ok', code: 200});
+  });
+})
+
+// 查询用户订单
+app.get('/selectorder', (req, res) => {
+  let phone = req.query.phone;
+  // console.log(phone);
+  let sql = 'SELECT * FROM user_order where or_phone = ?';
+  // 执行SQL语句
+  pool.query(sql,[phone],(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
+// 查询竞猜列表
+app.get('/selectguess', (req, res) => {
+  // let phone = req.query.phone;
+  // console.log(phone);
+  let sql = 'SELECT * FROM guess_info';
+  // 执行SQL语句
+  pool.query(sql,(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
+// 插入竞猜项
+app.post('/insertguess',(req,res)=>{
+  console.log(req.body);
+  var obj = req.body;
+  let sql = 'insert into guess_detail set ?'
+  pool.query(sql, [obj],(error, result) => {
+    if (error) throw error;
+    pool.query('update user_info set goldmoney=goldmoney-?', [obj.gd_buy]);
+    pool.query('update guess_info set gu_sum=gu_sum+? where gu_name=?', [obj.gd_buy,obj.gd_detail]);
+    res.send({ message: 'ok', code: 200});
+  });
+})
+
+// 查询用户下注详情
+app.get('/userguess', (req, res) => {
+  let phone = req.query.phone;
+  // console.log(phone);
+  let sql = 'SELECT * FROM guess_detail where gd_phone = ?';
+  // 执行SQL语句
+  pool.query(sql,[phone],(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
+
+
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
   console.log('server is running...');

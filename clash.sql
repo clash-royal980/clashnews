@@ -356,8 +356,65 @@
     username varchar(64) default 'FQlNl_yv',
     winlose int default 0,
     goldmoney int default 1000,
-    email varchar(64),    #邮箱
-    gameID varchar(32),   #游戏ID
-    gamename varchar(32)   #游戏昵称
+    email varchar(64) default '',    #邮箱
+    gameID varchar(32) default '',   #游戏ID
+    gamename varchar(32) default ''  #游戏昵称
   );
   INSERT INTO user_info (id,phone,pwd,toppic) VALUES(null,'15102797261',md5('123456'),'/img/toppic/9.png');
+
+  #商品信息表
+  create table shop_info(
+    id int primary key auto_increment,
+    sp_name varchar(16) NOT NULL, #商品名称
+    sp_pic varchar(128),  #商品图片
+    sp_sum int,  #已兑换数量
+    sp_other int,  #剩余数量
+    sp_price int,  #商品价格
+    sp_info varchar(128)  #商品介绍
+  );
+  INSERT INTO shop_info VALUES(null,'迷你皮卡手办','/img/shop/1.jpg',74,9,95000,'CRL版的迷你皮卡手办，属于中国区CRL特有的手办！自2018年推出以来受到了广大皇室友人们的喜爱，爆款中的爆款。');
+  INSERT INTO shop_info VALUES(null,'CRL鼠标垫','/img/shop/2.jpg',59,8,20000,'CRL官方授权鼠标垫！');
+  INSERT INTO shop_info VALUES(null,'CR国王头像T恤','/img/shop/3.jpg',33,1,30000,'穿上它，你就是整个皇室最帅的仔。仅有男款S码和M码，需要在备注中留下需要的尺码。未备注的将随机发货。');
+  INSERT INTO shop_info VALUES(null,'CRL钥匙扣','/img/shop/4.jpg',30,0,6000,'CRL官方授权钥匙扣，限量10，兑完即止！');
+  INSERT INTO shop_info VALUES(null,'【CRL月决特惠】滚木玩偶','/img/shop/5.jpg',16,5,15000,'Clash世界中最传奇、最热门、最受欢迎、最让对手害怕、威力中透着魅力、低费盖不住实力的卡牌，正等您把它带回家。');
+  INSERT INTO shop_info VALUES(null,'法师手办','/img/shop/6.jpg',12,3,19000,'官方法师手办，欲购从速！');
+  INSERT INTO shop_info VALUES(null,'王子手办','/img/shop/7.jpg',11,5,150000,'官方王子手办，限量5个，欲购从速！');
+  INSERT INTO shop_info VALUES(null,'公主手办','/img/shop/8.jpg',3,1,240000,'人见人爱，公主手办！');
+  INSERT INTO shop_info VALUES(null,'【CRSC特惠！】手办捆绑包','/img/shop/9.jpg',3,4,150000,'弓小妹和黄毛哥！点击让他俩陪你回家！');
+  INSERT INTO shop_info VALUES(null,'随机CRL限量版黄铜徽章','/img/shop/10.jpg',2,8,100000,'戴上Clash专属珍藏版徽章，成为Clash世界的代言人。');
+
+  #订单信息表
+  create table user_order(
+    id int primary key auto_increment,
+    or_shop varchar(16) NOT NULL, #商品名称
+    or_pic varchar(128),  #商品图片
+    or_name varchar(8),  #姓名
+    or_address varchar(255),  #订单地址
+    or_sap varchar(128),  #留言
+    or_time varchar(64), #订单时间
+    or_phone varchar(16),  #联系电话
+    or_price int, #商品价格
+    or_staus varchar(8) default '未发货'
+  );
+
+  #竞猜信息表
+  create table guess_info(
+    id int primary key auto_increment,
+    gu_name varchar(64), #竞猜项
+    gu_sum int  #已下注
+  );
+  INSERT INTO guess_info VALUES(null,'中国大陆赛区',1019690);
+  INSERT INTO guess_info VALUES(null,'日本赛区',253983);
+  INSERT INTO guess_info VALUES(null,'东南亚赛区',94600);
+  INSERT INTO guess_info VALUES(null,'韩国赛区',37548);
+
+  #竞猜详情表
+   create table guess_detail(
+    id int primary key auto_increment,
+    gd_time varchar(16), #下注时间
+    gd_game varchar(64),  #下注项目
+    gd_detail varchar(64),  #下注内容
+    gd_buy int, #购买豆子
+    gd_answer varchar(16) default '未开奖', #竞猜结果(豆子变化),
+    gd_phone varchar(16)
+  );
