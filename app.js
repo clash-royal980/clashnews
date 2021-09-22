@@ -315,6 +315,17 @@ app.get('/userguess', (req, res) => {
   });
 });
 
+// CRL视频数据接口
+app.get('/crlvideo', (req, res) => {
+  // let phone = req.query.phone;
+  // console.log(phone);
+  let sql = 'SELECT * FROM tenking_video where vi_mouth = "七月"';
+  // 执行SQL语句
+  pool.query(sql,(error, results) => {
+    if (error) throw error;
+    res.send({ message: 'ok', code: 200, results: results });
+  });
+});
 
 // 指定服务器对象监听的端口号
 app.listen(3000, () => {
