@@ -260,7 +260,7 @@ app.post('/userorder',(req,res)=>{
   let sql = 'insert into user_order set ?'
   pool.query(sql, [obj],(error, result) => {
     if (error) throw error;
-    pool.query('update user_info set goldmoney=goldmoney-?', [obj.or_price]);
+    pool.query('update user_info set goldmoney=goldmoney-? where phone=?', [obj.or_price,obj.or_phone]);
     pool.query('update shop_info set sp_other=sp_other-1 where sp_name=?', [obj.or_shop]);
     res.send({ message: 'ok', code: 200});
   });

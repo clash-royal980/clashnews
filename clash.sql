@@ -430,17 +430,17 @@
     vi_time varchar(16),   #比赛时间
     vi_mouth varchar(255) #月份  
   );
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/2.png','Light','Brewzany','2 - 0','2021-08-21','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/3.png','/img/video/people/4.png','Surg TS','DarkAngel⭐️','1 - 2','2021-08-21','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/2.png','Light','Brew zany','2 - 0','2021-08-21','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/3.png','/img/video/people/4.png','Surg TS','Dark Angel','1 - 2','2021-08-21','七月');
   INSERT INTO tenking_video VALUES(null,'/img/video/people/5.png','/img/video/people/6.png','TRB SandBox','Coco','2 - 0','2021-08-21','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/7.png','/img/video/people/8.png','FamousKid','Vitor75','1 - 2','2021-08-21','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/2.png','/img/video/people/3.png','Brewzany','Surg TS','2 - 0','2021-08-21','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/6.png','/img/video/people/7.png','Coco','FamousKid','2 - 1','2021-08-21','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/4.png','Light','DarkAngel⭐️','2 - 1','2021-08-21','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/7.png','/img/video/people/8.png','Famous Kid','Vitor75','1 - 2','2021-08-21','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/2.png','/img/video/people/3.png','Brew zany','Surg TS','2 - 0','2021-08-21','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/6.png','/img/video/people/7.png','Coco','Famous Kid','2 - 1','2021-08-21','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/4.png','Light','Dark Angel','2 - 1','2021-08-21','七月');
   INSERT INTO tenking_video VALUES(null,'/img/video/people/5.png','/img/video/people/8.png','TRB SandBox','Vitor75','2 - 1','2021-08-21','七月');
   INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/5.png','Light','TRB SandBox','1 - 2','2021-08-22','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/2.png','Vitor75','Brewzany','0 - 2','2021-08-22','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/6.png','/img/video/people/4.png','Coco','DarkAngel⭐️','2 - 0','2021-08-22','七月');
-  INSERT INTO tenking_video VALUES(null,'/img/video/people/2.png','/img/video/people/6.png','Brewzany','Coco','1 - 2','2021-08-22','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/8.png','/img/video/people/2.png','Vitor75','Brew zany','0 - 2','2021-08-22','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/6.png','/img/video/people/4.png','Coco','Dark Angel','2 - 0','2021-08-22','七月');
+  INSERT INTO tenking_video VALUES(null,'/img/video/people/2.png','/img/video/people/6.png','Brew zany','Coco','1 - 2','2021-08-22','七月');
   INSERT INTO tenking_video VALUES(null,'/img/video/people/1.png','/img/video/people/6.png','Light','Coco','2 - 0','2021-08-22','七月');
   INSERT INTO tenking_video VALUES(null,'/img/video/people/5.png','/img/video/people/1.png','TRB SandBox','Light','2 - 0','2021-08-22','七月');
